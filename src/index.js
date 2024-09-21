@@ -5,7 +5,7 @@ import './components/submit';
 import './index.css';
 
 // log
-console.log('Hello webpack!');
+console.log('Hello webpack');
 
 const hello = 'rahul';
 console.log(hello);
