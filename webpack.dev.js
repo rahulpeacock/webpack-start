@@ -9,11 +9,13 @@ const devConfig = {
   output: {
     filename: 'main.js',
     clean: true,
+    assetModuleFilename: 'assets/[name].[ext]',
   },
   devServer: {
     watchFiles: ['src/*.html'],
     hot: true,
     compress: true,
+    port: 3000,
   },
 };
 

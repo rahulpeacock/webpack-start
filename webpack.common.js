@@ -1,6 +1,8 @@
 // @ts-check
 
+const path = require('node:path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 /** @type { import('webpack').Configuration } */
@@ -11,7 +13,10 @@ module.exports = {
       filename: 'main.css',
     }),
     new HtmlWebpackPlugin({
-      template: './src/template.html',
+      template: path.resolve(__dirname, 'src/template.html'),
+    }),
+    new CopyPlugin({
+      patterns: [{ from: path.resolve(__dirname, 'public') }],
     }),
   ],
   module: {

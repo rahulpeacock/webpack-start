@@ -9,6 +9,7 @@ const prodConfig = {
   output: {
     filename: 'main.[contenthash].js',
     clean: true,
+    assetModuleFilename: 'assets/[name].[hash][ext]',
   },
 };
 
