@@ -1,14 +1,11 @@
-const path = require('node:path');
+// @ts-check
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
+/** @type { import('webpack').Configuration } */
 module.exports = {
-  mode: 'development',
   entry: './src/index.js',
-  output: {
-    filename: 'main.[contenthash].js',
-    clean: true,
-  },
   plugins: [
     new MiniCSSExtractPlugin({
       filename: 'main.css',
@@ -17,15 +14,6 @@ module.exports = {
       template: './src/template.html',
     }),
   ],
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
-    port: 3000,
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
-  },
   module: {
     rules: [
       {
