@@ -27,7 +27,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'contact.html',
       template: path.resolve(__dirname, 'src/pages/contact.html'),
-      chunks: ['contact'],
+      chunks: ['contact', 'vendor'],
     }),
     new CopyPlugin({
       patterns: [{ from: path.resolve(__dirname, 'public') }],
@@ -37,12 +37,13 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
         use: ['babel-loader'],
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         use: [MiniCSSExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        exclude: /node_modules/,
       },
     ],
   },

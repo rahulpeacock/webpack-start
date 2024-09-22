@@ -1,1 +1,2 @@
-console.log('Hi from Vendor');
+// Tailwindcss
+import './tailwind.css';

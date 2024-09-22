@@ -1,6 +1,5 @@
 // @ts-check
 
-const path = require('node:path');
 const commonConfig = require('./webpack.common');
 const { merge } = require('webpack-merge');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');

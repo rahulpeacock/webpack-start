@@ -5,5 +5,7 @@ module.exports = {
     require('postcss-pxtorem')({
       propList: ['*'],
     }),
+    'postcss-preset-env',
+    require('tailwindcss'),
   ],
 };
