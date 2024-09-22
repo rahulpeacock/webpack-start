@@ -7,13 +7,27 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 /** @type { import('webpack').Configuration } */
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: path.resolve(__dirname, 'src/index.js'),
+    about: path.resolve(__dirname, 'src/scripts/about.js'),
+    contact: path.resolve(__dirname, 'src/scripts/contact.js'),
+    vendor: path.resolve(__dirname, 'src/vendor.js'),
+  },
   plugins: [
-    new MiniCSSExtractPlugin({
-      filename: 'main.css',
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.resolve(__dirname, 'src/index.html'),
+      chunks: ['index', 'vendor'],
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/template.html'),
+      filename: 'about.html',
+      template: path.resolve(__dirname, 'src/pages/about.html'),
+      chunks: ['about', 'vendor'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'contact.html',
+      template: path.resolve(__dirname, 'src/pages/contact.html'),
+      chunks: ['contact'],
     }),
     new CopyPlugin({
       patterns: [{ from: path.resolve(__dirname, 'public') }],
